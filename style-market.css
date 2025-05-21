@@ -6,41 +6,43 @@ body {
   margin: 0;
   padding: 2rem;
 }
-header {
+.nav-menu {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
 }
-header h1 {
-  color: #e91e63;
+.nav-menu button.active {
+  background: #e91e63;
 }
-input[type="text"] {
+.top-right-buttons {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+button, select {
   padding: 0.6rem 1rem;
   border-radius: 6px;
-  border: none;
-  width: 200px;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-thead {
-  background: #333;
-}
-th, td {
-  padding: 0.8rem;
-  border-bottom: 1px solid #444;
-  text-align: left;
-}
-tr:hover {
-  background: #1e1e1e;
-}
-.swap-btn {
   background: #e91e63;
   border: none;
-  padding: 0.4rem 0.8rem;
   color: white;
-  border-radius: 6px;
-  cursor: pointer;
+  font-weight: bold;
 }
+.dex-container {
+  max-width: 400px;
+  margin: 6rem auto;
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+}
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: none;
+}
+
