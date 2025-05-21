@@ -1,0 +1,47 @@
+
+body {
+  font-family: sans-serif;
+  background: #121212;
+  color: white;
+  margin: 0;
+  padding: 2rem;
+}
+.nav-menu {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.nav-menu button.active {
+  background: #e91e63;
+}
+.top-right-buttons {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+button, select {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  background: #e91e63;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+.dex-container {
+  max-width: 400px;
+  margin: 6rem auto;
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+}
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: none;
+}
