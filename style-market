@@ -1,0 +1,46 @@
+
+body {
+  font-family: sans-serif;
+  background: #121212;
+  color: white;
+  margin: 0;
+  padding: 2rem;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+header h1 {
+  color: #e91e63;
+}
+input[type="text"] {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: none;
+  width: 200px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead {
+  background: #333;
+}
+th, td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #444;
+  text-align: left;
+}
+tr:hover {
+  background: #1e1e1e;
+}
+.swap-btn {
+  background: #e91e63;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
