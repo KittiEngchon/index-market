@@ -1,6 +1,6 @@
 // market.js
 
-// ข้อมูลตัวอย่างของเหรียญ (mock data)
+// ข้อมูลตัวอย่างของเหรียญ (พร้อมกราฟจริงจาก Coingecko)
 const coinData = [
   {
     id: 1,
@@ -12,7 +12,7 @@ const coinData = [
     change7d: 8.3,
     volume24h: 73407997762,
     marketCap: 2213992403183,
-    chartUrl: 'https://www.coingecko.com/graph_placeholder.png'
+    chartUrl: 'https://www.coingecko.com/coins/1/sparkline.svg'
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const coinData = [
     change7d: 1.6,
     volume24h: 37737066940,
     marketCap: 317100454383,
-    chartUrl: 'https://www.coingecko.com/graph_placeholder.png'
+    chartUrl: 'https://www.coingecko.com/coins/279/sparkline.svg'
   }
 ];
 
@@ -75,5 +75,9 @@ async function fetchGlobalStats() {
 window.addEventListener('DOMContentLoaded', () => {
   renderMarketTable();
   fetchGlobalStats();
-});
 
+  // อัปเดตข้อมูลแบบ real-time ทุก 60 วินาที
+  setInterval(() => {
+    fetchGlobalStats();
+  }, 60000);
+});
