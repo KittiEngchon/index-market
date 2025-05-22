@@ -1,98 +1,54 @@
-/* style.css */
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #ffffff;
-  color: #000000;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background: #fff;
 }
-
-header, .chain-selector, .chart-section, .market-stats, .table-section {
+.container {
   max-width: 1200px;
   margin: auto;
-  padding: 1rem;
+  padding: 20px;
 }
-
-h1 span {
-  color: red;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-button {
+.chain-buttons button, .connect {
+  margin-right: 10px;
+  padding: 6px 12px;
+  border: none;
+  background: #eee;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
-
-button:hover {
-  opacity: 0.85;
+.chart-section {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  gap: 10px;
+  margin-top: 20px;
 }
-
-.market-box, .chart-box, .top-gainers, .socket-box {
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  padding: 1rem;
-  background-color: #f9f9f9;
+.chart-center {
+  height: 400px;
+  border: 1px solid #ccc;
 }
-
-.table {
+.market-box, .top-gainers {
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+}
+.search-box {
+  width: 100%;
+  margin: 20px 0 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.coin-table table {
   width: 100%;
   border-collapse: collapse;
 }
-
-.table th, .table td {
-  padding: 0.5rem;
-  border-bottom: 1px solid #e0e0e0;
+.coin-table th, .coin-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
   text-align: left;
-}
-
-.table th {
-  background-color: #f3f3f3;
-}
-
-.text-green {
-  color: #10b981;
-}
-
-.bg-green {
-  background-color: #ecfdf5;
-}
-
-.bg-yellow {
-  background-color: #fef9c3;
-}
-
-.bg-blue {
-  background-color: #e0f2fe;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.text-bold {
-  font-weight: bold;
-}
-
-.socket {
-  height: 200px;
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fafafa;
-  border: 2px dashed #ccc;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.chart-placeholder {
-  height: 200px;
-  background-color: #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-style: italic;
-  color: #555;
 }
