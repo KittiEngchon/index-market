@@ -26,7 +26,6 @@ const coinData = [
     marketCap: 317100454383,
     chartUrl: 'https://www.coingecko.com/graph_placeholder.png'
   }
-  // สามารถเพิ่มเหรียญอื่น ๆ ได้ที่นี่
 ];
 
 // ฟังก์ชันแสดงข้อมูลเหรียญในตาราง
@@ -54,7 +53,27 @@ function renderMarketTable() {
   });
 }
 
+// ดึงข้อมูล Market Cap และ Volume ล่าสุดจาก Coingecko API
+async function fetchGlobalStats() {
+  try {
+    const res = await fetch('https://api.coingecko.com/api/v3/global');
+    const data = await res.json();
+
+    const marketCap = data.data.total_market_cap.usd;
+    const volume = data.data.total_volume.usd;
+
+    document.getElementById('global-market-cap').textContent = `$${marketCap.toLocaleString()}`;
+    document.getElementById('global-volume').textContent = `$${volume.toLocaleString()}`;
+  } catch (error) {
+    console.error("Error fetching global stats:", error);
+    document.getElementById('global-market-cap').textContent = 'N/A';
+    document.getElementById('global-volume').textContent = 'N/A';
+  }
+}
+
 // รันเมื่อโหลดหน้า
 window.addEventListener('DOMContentLoaded', () => {
   renderMarketTable();
+  fetchGlobalStats();
 });
+
