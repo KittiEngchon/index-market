@@ -1,0 +1,98 @@
+/* style.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+header, .chain-selector, .chart-section, .market-stats, .table-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+h1 span {
+  color: red;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.market-box, .chart-box, .top-gainers, .socket-box {
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f3f3f3;
+}
+
+.text-green {
+  color: #10b981;
+}
+
+.bg-green {
+  background-color: #ecfdf5;
+}
+
+.bg-yellow {
+  background-color: #fef9c3;
+}
+
+.bg-blue {
+  background-color: #e0f2fe;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.socket {
+  height: 200px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+  border: 2px dashed #ccc;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.chart-placeholder {
+  height: 200px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  color: #555;
+}
