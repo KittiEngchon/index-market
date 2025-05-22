@@ -91,5 +91,3 @@ window.addEventListener('DOMContentLoaded', () => {
   fetchGlobalStats();
   setInterval(fetchGlobalStats, 60000);
 });
-
-
