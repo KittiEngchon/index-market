@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Standard Index</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-white text-black">
   <div class="p-6 space-y-6">
@@ -34,11 +35,11 @@
       <!-- Market Cap & Volume -->
       <div class="col-span-3 space-y-2">
         <div class="border p-4 bg-green-50">
-          <p class="font-bold text-lg">$3,619,921,173,059</p>
-          <p class="text-green-600">Market Cap ▲ 1.3%</p>
+          <p class="font-bold text-lg" id="global-market-cap">Loading...</p>
+          <p class="text-green-600">Market Cap ▲</p>
         </div>
         <div class="border p-4 bg-green-50">
-          <p class="font-bold text-lg">$198,407,080,366</p>
+          <p class="font-bold text-lg" id="global-volume">Loading...</p>
           <p class="text-green-600">24h Trading Volume</p>
         </div>
       </div>
@@ -88,18 +89,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-t">
-              <td class="px-2 py-1">1</td>
-              <td class="px-2 py-1">Bitcoin BTC</td>
-              <td class="px-2 py-1">$111,412</td>
-              <td class="px-2 py-1 text-green-500">▲ 0.0%</td>
-              <td class="px-2 py-1 text-green-500">▲ 3.6%</td>
-              <td class="px-2 py-1 text-green-500">▲ 8.3%</td>
-              <td class="px-2 py-1">$73B</td>
-              <td class="px-2 py-1">$2.21T</td>
-              <td class="px-2 py-1"><img src="https://www.coingecko.com/graph_placeholder.png" class="w-20 h-4"></td>
-            </tr>
-            <!-- Add more rows as needed -->
+            <!-- Content will be injected by JS -->
           </tbody>
         </table>
       </div>
@@ -110,5 +100,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Scripts -->
+  <script src="market.js"></script>
 </body>
 </html>
