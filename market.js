@@ -1,34 +1,31 @@
 // market.js
 
-// ข้อมูลตัวอย่างของเหรียญ (พร้อมกราฟจริงจาก Coingecko)
-const coinData = [
-  {
-    id: 1,
-    name: 'Bitcoin',
-    symbol: 'BTC',
-    price: 111412,
-    change1h: 0.0,
-    change24h: 3.6,
-    change7d: 8.3,
-    volume24h: 73407997762,
-    marketCap: 2213992403183,
-    chartUrl: 'https://www.coingecko.com/coins/1/sparkline.svg'
-  },
-  {
-    id: 2,
-    name: 'Ethereum',
-    symbol: 'ETH',
-    price: 2629.85,
-    change1h: 0.3,
-    change24h: 2.0,
-    change7d: 1.6,
-    volume24h: 37737066940,
-    marketCap: 317100454383,
-    chartUrl: 'https://www.coingecko.com/coins/279/sparkline.svg'
-  }
-];
+// สร้างข้อมูลเหรียญ 50 อันดับ (mock)
+const coinData = Array.from({ length: 50 }, (_, i) => {
+  const id = i + 1;
+  const name = id === 1 ? 'Bitcoin' : id === 2 ? 'Ethereum' : `Coin ${id}`;
+  const symbol = id === 1 ? 'BTC' : id === 2 ? 'ETH' : `C${id}`;
+  const chartUrl = id === 1
+    ? 'https://www.coingecko.com/coins/1/sparkline.svg'
+    : id === 2
+    ? 'https://www.coingecko.com/coins/279/sparkline.svg'
+    : 'https://www.coingecko.com/coins/1/sparkline.svg';
 
-// ฟังก์ชันแสดงข้อมูลเหรียญในตาราง
+  return {
+    id,
+    name,
+    symbol,
+    price: (Math.random() * 1000 + 1).toFixed(2),
+    change1h: (Math.random() * 2).toFixed(1),
+    change24h: (Math.random() * 5).toFixed(1),
+    change7d: (Math.random() * 10).toFixed(1),
+    volume24h: Math.floor(Math.random() * 100_000_000_000),
+    marketCap: Math.floor(Math.random() * 2_000_000_000_000),
+    chartUrl,
+  };
+});
+
+// แสดงข้อมูลเหรียญในตาราง
 function renderMarketTable() {
   const tableBody = document.querySelector("tbody");
   tableBody.innerHTML = '';
@@ -40,7 +37,7 @@ function renderMarketTable() {
     row.innerHTML = `
       <td class="px-2 py-1">${coin.id}</td>
       <td class="px-2 py-1">${coin.name} ${coin.symbol}</td>
-      <td class="px-2 py-1">$${coin.price.toLocaleString()}</td>
+      <td class="px-2 py-1">$${parseFloat(coin.price).toLocaleString()}</td>
       <td class="px-2 py-1 text-green-500">▲ ${coin.change1h}%</td>
       <td class="px-2 py-1 text-green-500">▲ ${coin.change24h}%</td>
       <td class="px-2 py-1 text-green-500">▲ ${coin.change7d}%</td>
@@ -53,7 +50,7 @@ function renderMarketTable() {
   });
 }
 
-// ดึงข้อมูล Market Cap และ Volume ล่าสุดจาก Coingecko API
+// ดึงข้อมูล Market Cap และ Volume รวมแบบ real-time
 async function fetchGlobalStats() {
   try {
     const res = await fetch('https://api.coingecko.com/api/v3/global');
@@ -71,12 +68,10 @@ async function fetchGlobalStats() {
   }
 }
 
-// รันเมื่อโหลดหน้า
+// โหลดเมื่อหน้าเว็บเปิด และตั้งเวลาอัปเดตซ้ำทุก 60 วินาที
 window.addEventListener('DOMContentLoaded', () => {
   renderMarketTable();
   fetchGlobalStats();
-
-  // อัปเดตข้อมูลแบบ real-time ทุก 60 วินาที
   setInterval(() => {
     fetchGlobalStats();
   }, 60000);
