@@ -1,105 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Standard Index</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Index Market</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://s3.tradingview.com/tv.js"></script>
 </head>
-<body class="bg-white text-black">
-  <div class="p-6 space-y-6">
-
-    <!-- Header -->
-    <div class="flex justify-between items-center mb-4">
-      <h1 class="text-3xl font-bold">Standard Inde<span class="text-red-600">x</span></h1>
-      <div class="flex gap-2">
-        <button class="bg-purple-600 text-white px-4 py-2 rounded">Polygon</button>
-        <button class="bg-gray-900 text-white px-4 py-2 rounded">Connect Wallet</button>
+<body>
+  <div class="container">
+    <header>
+      <h1>Standard Inde<span style="color:red;">x</span></h1>
+      <div class="chain-buttons">
+        <button>CRYPTO</button><button>Ethereum</button><button>Polygon</button>
+        <button>Linea</button><button>Base</button><button>BNB</button><button>Cronos</button>
       </div>
-    </div>
+      <button class="connect">Connect Wallet</button>
+    </header>
 
-    <!-- Chain Selector -->
-    <div class="flex flex-wrap gap-2">
-      <button class="bg-black text-white px-4 py-1 rounded">CRYPTO</button>
-      <button class="bg-purple-700 text-white px-4 py-1 rounded">Ethereum</button>
-      <button class="bg-purple-500 text-white px-4 py-1 rounded">Polygon</button>
-      <button class="bg-gray-300 text-black px-4 py-1 rounded">Linea</button>
-      <button class="bg-blue-300 text-black px-4 py-1 rounded">Base</button>
-      <button class="bg-yellow-400 text-black px-4 py-1 rounded">BNB</button>
-      <button class="bg-gray-200 text-black px-4 py-1 rounded">Cronos</button>
-    </div>
-
-    <!-- Chart and Info Section -->
-    <div class="grid grid-cols-12 gap-4">
-      <!-- Market Cap & Volume -->
-      <div class="col-span-3 space-y-2">
-        <div class="border p-4 bg-green-50">
-          <p class="font-bold text-lg" id="global-market-cap">Loading...</p>
-          <p class="text-green-600">Market Cap ▲</p>
+    <main>
+      <section class="chart-section">
+        <div class="market-box">
+          <p><strong>Market Cap:</strong> <span id="global-market-cap">Loading...</span></p>
+          <p><strong>24h Volume:</strong> <span id="global-volume">Loading...</span></p>
         </div>
-        <div class="border p-4 bg-green-50">
-          <p class="font-bold text-lg" id="global-volume">Loading...</p>
-          <p class="text-green-600">24h Trading Volume</p>
+        <div class="chart-center">
+          <div class="tradingview-widget-container">
+            <div id="tradingview_chart"></div>
+          </div>
         </div>
-      </div>
-
-      <!-- Chain Chart -->
-      <div class="col-span-6">
-        <div class="border h-48 bg-gray-100 flex items-center justify-center">
-          [Chain Chart Placeholder]
-        </div>
-      </div>
-
-      <!-- Top Gainers -->
-      <div class="col-span-3">
-        <div class="border p-4 bg-blue-50">
-          <p class="font-bold">Top Gainers</p>
-          <ul class="list-disc list-inside">
-            <li>AsMatch ▲ 1294.3%</li>
-            <li>Efinity ▲ 333.4%</li>
-            <li>Guild of Guardians ▲ 125.9%</li>
+        <div class="top-gainers">
+          <h3>Top Gainers</h3>
+          <ul>
+            <li>CoinA ▲ 123%</li>
+            <li>CoinB ▲ 77%</li>
+            <li>CoinC ▲ 55%</li>
           </ul>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- Coin Table Section -->
-    <div class="grid grid-cols-12 gap-4">
-      <!-- News Socket (Left) -->
-      <div class="col-span-2">
-        <div class="border p-4 h-[600px] bg-yellow-50">📰 News Socket</div>
-      </div>
+      <input type="text" id="coin-search" placeholder="🔍 ค้นหาเหรียญ..." class="search-box" />
 
-      <!-- Coin Table (Center) -->
-      <div class="col-span-8">
-        <h3 class="text-xl font-semibold mb-2">Top 50</h3>
-        <table class="min-w-full border">
-          <thead class="bg-gray-100">
+      <section class="coin-table">
+        <table>
+          <thead>
             <tr>
-              <th class="text-left px-2 py-1">#</th>
-              <th class="text-left px-2 py-1">Coin</th>
-              <th class="text-left px-2 py-1">Price</th>
-              <th class="text-left px-2 py-1">1h</th>
-              <th class="text-left px-2 py-1">24h</th>
-              <th class="text-left px-2 py-1">7d</th>
-              <th class="text-left px-2 py-1">24h Vol</th>
-              <th class="text-left px-2 py-1">Mkt Cap</th>
-              <th class="text-left px-2 py-1">Chart</th>
+              <th>#</th><th>Coin</th><th>Price</th><th>1h</th><th>24h</th><th>7d</th>
+              <th>24h Vol</th><th>Mkt Cap</th><th style="width:120px;">Chart</th>
             </tr>
           </thead>
-          <tbody>
-            <!-- Content will be injected by JS -->
+          <tbody id="coin-table-body">
+            <!-- JS fill here -->
           </tbody>
         </table>
-      </div>
-
-      <!-- Launchpad Socket (Right) -->
-      <div class="col-span-2">
-        <div class="border p-4 h-[600px] bg-green-50">🚀 Launchpad Socket</div>
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
+
+  <script src="market.js"></script>
+  <script>
+    new TradingView.widget({
+      "container_id": "tradingview_chart",
+      "symbol": "BINANCE:BTCUSDT",
+      "interval": "D",
+      "theme": "light",
+      "style": "1",
+      "locale": "en",
+      "autosize": true
+    });
+  </script>
+</body>
+</html>
+
 
   <!-- Scripts -->
   <script src="market.js"></script>
